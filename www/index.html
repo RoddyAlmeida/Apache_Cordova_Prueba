@@ -28,79 +28,253 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy"
-      content="default-src 'self' https://jsonplaceholder.typicode.com;
-               script-src  'self' 'unsafe-inline' https://code.jquery.com;
-               connect-src 'self' https://jsonplaceholder.typicode.com">
-               
-        <!--<meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' https://rickandmortyapi.com;
-            script-src  'self' 'unsafe-inline' https://code.jquery.com;
-            connect-src 'self' https://rickandmortyapi.com">-->
+        <!-- Content Security Policy simplificada -->
+        <meta http-equiv="Content-Security-Policy" 
+              content="default-src 'self' https://68547b6a6a6ef0ed662f34a1.mockapi.io data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; 
+                       style-src 'self' 'unsafe-inline'; 
+                       media-src *; 
+                       img-src 'self' data: content:; 
+                       script-src 'self' 'unsafe-inline' 'unsafe-eval'; 
+                       connect-src 'self' https://68547b6a6a6ef0ed662f34a1.mockapi.io">
+        
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
+        
+        <!-- Archivos CSS -->
         <link rel="stylesheet" href="css/index.css">
-
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
-        <title>AppMovil2</title>
+        
+        <title>Restaurant App</title>
     </head>
     <body>
-        <!-- Pagina 1 -->
-        <div data-role="page" id="pagina1">
-            <div data-role="header">
-                <h2>Mi primera App</h2>
+        <div data-role="page" id="pageone">
+            <div data-role="header" data-position="fixed">
+                <h1>Restaurant App</h1>
             </div>
 
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#" data-icon="home">Página 1</a></li>
-                    <li><a href="#pagina2" data-icon="grid">Página 2</a></li>
-                </ul>
-            </div>
+            <div data-role="main" class="ui-content">
+                <div class="welcome-section">
+                    <h2>Bienvenido a Restaurant App</h2>
+                    <p>Tu aplicación móvil para gestionar restaurantes</p>
+                </div>
 
-            <div data-role="content">
-                <input type="text" id="txtNombre" placeholder="Escribe algo aquí..." />
-                <button id="btnBuscar">Buscar</button>
-                <div id="divResultado"></div>
-            </div>
+                <div class="navigation-buttons">
+                    <a href="#pagetwo" class="ui-btn ui-corner-all ui-shadow">Buscar Usuario</a>
+                    <a href="#pagethree" class="ui-btn ui-corner-all ui-shadow">Ver Restaurantes</a>
+                    <a href="#pagefour" class="ui-btn ui-corner-all ui-shadow">Gestión de Usuarios</a>
+                    <a href="#pagefive" class="ui-btn ui-corner-all ui-shadow">Gestión de Restaurantes</a>
+                </div>
 
-            <div data-role="footer" data-position="fixed">
-                <h3>Tutorial Apache Cordova</h3>
-            </div>
-
-        </div>
-
-        <!-- Pagina 2 -->
-        <div data-role="page" id="pagina2">
-            <div data-role="header">
-                <h2>Mi primera App</h2>
-            </div>
-
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#pagina1" data-icon="home">Página 1</a></li>
-                    <li><a href="#" data-icon="grid">Página 2</a></li>
-                </ul>
-            </div>
-
-            <div data-role="content">
-                <button id="btnCargar">Cargar Lista</button>
-                <div id="divLista"></div>
+                <div class="info-section">
+                    <h3>Funcionalidades</h3>
+                    <ul>
+                        <li>Buscar usuarios por nombre</li>
+                        <li>Ver lista de restaurantes</li>
+                        <li>Gestionar usuarios (CRUD completo)</li>
+                        <li>Gestionar restaurantes (CRUD completo)</li>
+                    </ul>
+                </div>
             </div>
 
             <div data-role="footer" data-position="fixed">
-                <h3>Tutorial Apache Cordova</h3>
+                <h4>Apache Cordova App</h4>
             </div>
-
         </div>
 
-        <script src="js/jquery-2.2.3.min.js"></script>
-        <script src="js/jquery.mobile-1.4.5.min.js"></script>
-        <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
-        
-        
+        <div data-role="page" id="pagetwo">
+            <div data-role="header" data-position="fixed">
+                <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Inicio</a>
+                <h1>Buscar Usuario</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <div class="search-section">
+                    <h2>Buscar Usuario</h2>
+                    <p>Ingresa el nombre del usuario que deseas buscar</p>
+                    
+                    <div class="form-group">
+                        <label for="txtNombre">Nombre del Usuario:</label>
+                        <input type="text" id="txtNombre" placeholder="Ej: Juan Pérez">
+                    </div>
+                    
+                    <button type="button" id="btnBuscar" class="ui-btn ui-corner-all ui-shadow">Buscar Usuario</button>
+                </div>
+
+                <div id="divResultado" class="result-section"></div>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <h4>Búsqueda de Usuarios</h4>
+            </div>
+        </div>
+
+        <div data-role="page" id="pagethree">
+            <div data-role="header" data-position="fixed">
+                <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Inicio</a>
+                <h1>Lista de Restaurantes</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <div class="list-section">
+                    <h2>Restaurantes Disponibles</h2>
+                    <p>Lista de todos los restaurantes registrados</p>
+                    
+                    <button type="button" id="btnCargar" class="ui-btn ui-corner-all ui-shadow">Cargar Restaurantes</button>
+                </div>
+
+                <div id="divLista" class="list-result-section"></div>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <h4>Lista de Restaurantes</h4>
+            </div>
+        </div>
+
+        <div data-role="page" id="pagefour">
+            <div data-role="header" data-position="fixed">
+                <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Inicio</a>
+                <h1>Gestión de Usuarios</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <div class="crud-section">
+                    <h2>Gestión Completa de Usuarios</h2>
+                    <p>Crear, leer, actualizar y eliminar usuarios</p>
+                </div>
+
+                <div class="crud-card">
+                    <h3>Formulario de Usuario</h3>
+                    
+                    <div class="form-group">
+                        <label for="txtUsuarioNombre">Nombre:</label>
+                        <input type="text" id="txtUsuarioNombre" placeholder="Nombre completo">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="txtUsuarioEmail">Email:</label>
+                        <input type="email" id="txtUsuarioEmail" placeholder="correo@ejemplo.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="txtUsuarioPassword">Contraseña:</label>
+                        <input type="password" id="txtUsuarioPassword" placeholder="Contraseña">
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="button" id="btnCrearUsuario" class="ui-btn ui-corner-all ui-shadow">Crear Usuario</button>
+                        <button type="button" id="btnActualizarUsuario" class="ui-btn ui-corner-all ui-shadow" style="display:none;">Actualizar Usuario</button>
+                        <button type="button" id="btnEliminarUsuario" class="ui-btn ui-corner-all ui-shadow ui-btn-b" style="display:none;">Eliminar Usuario</button>
+                        <button type="button" id="btnLimpiarUsuario" class="ui-btn ui-corner-all ui-shadow">Limpiar Formulario</button>
+                    </div>
+                </div>
+
+                <div class="crud-card">
+                    <h3>Lista de Usuarios</h3>
+                    <button type="button" id="btnCargarUsuarios" class="ui-btn ui-corner-all ui-shadow">Cargar Usuarios</button>
+                    <div id="divListaUsuarios" class="list-result-section"></div>
+                </div>
+
+                <div class="instructions-section">
+                    <h3>Instrucciones de Uso</h3>
+                    <div class="instruction-item">
+                        <h4>Crear:</h4>
+                        <p>Llena los campos y presiona "Crear Usuario"</p>
+                    </div>
+                    <div class="instruction-item">
+                        <h4>Seleccionar:</h4>
+                        <p>Haz clic en "Editar" en la lista de usuarios</p>
+                    </div>
+                    <div class="instruction-item">
+                        <h4>Actualizar:</h4>
+                        <p>Selecciona un usuario, modifica los campos y presiona "Actualizar"</p>
+                    </div>
+                    <div class="instruction-item">
+                        <h4>Eliminar:</h4>
+                        <p>Selecciona un usuario y presiona "Eliminar"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <h4>Gestión de Usuarios</h4>
+            </div>
+        </div>
+
+        <div data-role="page" id="pagefive">
+            <div data-role="header" data-position="fixed">
+                <a href="#pageone" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Inicio</a>
+                <h1>Gestión de Restaurantes</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <div class="crud-section">
+                    <h2>Gestión Completa de Restaurantes</h2>
+                    <p>Crear, leer, actualizar y eliminar restaurantes</p>
+                </div>
+
+                <div class="crud-card">
+                    <h3>Formulario de Restaurante</h3>
+                    
+                    <div class="form-group">
+                        <label for="txtRestauranteNombre">Nombre del Restaurante:</label>
+                        <input type="text" id="txtRestauranteNombre" placeholder="Nombre del restaurante">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="txtRestauranteDireccion">Dirección:</label>
+                        <input type="text" id="txtRestauranteDireccion" placeholder="Dirección completa">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="txtRestauranteTelefono">Teléfono:</label>
+                        <input type="tel" id="txtRestauranteTelefono" placeholder="Número de teléfono">
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="button" id="btnCrearRestaurante" class="ui-btn ui-corner-all ui-shadow">Crear Restaurante</button>
+                        <button type="button" id="btnActualizarRestaurante" class="ui-btn ui-corner-all ui-shadow" style="display:none;">Actualizar Restaurante</button>
+                        <button type="button" id="btnEliminarRestaurante" class="ui-btn ui-corner-all ui-shadow ui-btn-b" style="display:none;">Eliminar Restaurante</button>
+                        <button type="button" id="btnLimpiarRestaurante" class="ui-btn ui-corner-all ui-shadow">Limpiar Formulario</button>
+                    </div>
+                </div>
+
+                <div class="crud-card">
+                    <h3>Lista de Restaurantes</h3>
+                    <button type="button" id="btnCargarRestaurantes" class="ui-btn ui-corner-all ui-shadow">Cargar Restaurantes</button>
+                    <div id="divListaRestaurantes" class="list-result-section"></div>
+                </div>
+
+                <div class="instructions-section">
+                    <h3>Instrucciones de Uso</h3>
+                    <div class="instruction-item">
+                        <h4>Crear:</h4>
+                        <p>Llena los campos y presiona "Crear Restaurante"</p>
+                    </div>
+                    <div class="instruction-item">
+                        <h4>Seleccionar:</h4>
+                        <p>Haz clic en "Editar" en la lista de restaurantes</p>
+                    </div>
+                    <div class="instruction-item">
+                        <h4>Actualizar:</h4>
+                        <p>Selecciona un restaurante, modifica los campos y presiona "Actualizar"</p>
+                    </div>
+                    <div class="instruction-item">
+                        <h4>Eliminar:</h4>
+                        <p>Selecciona un restaurante y presiona "Eliminar"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <h4>Gestión de Restaurantes</h4>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>

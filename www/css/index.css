@@ -24,17 +24,18 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
-    background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);
-    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size:12px;
     height:100vh;
-    margin:0px;
-    padding:0px;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
     /* Padding to avoid the "unsafe" areas behind notches in the screen */
     padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
     /*text-transform:uppercase;*/
     width:100%;
+    color: #333333; /* Color de texto base más oscuro */
 }
 
 /* Portrait layout (default) */
@@ -106,5 +107,741 @@ h1 {
 @media screen and (prefers-color-scheme: dark) {
     body {
         background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
+    }
+}
+
+/* ===== ESTILOS PARA LA APP DE RESTAURANTE ===== */
+
+.app-header {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.app-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.app-subtitle {
+    font-size: 14px;
+    margin: 5px 0 0 0;
+    opacity: 0.9;
+}
+
+.search-section {
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+    color: #333;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #ff6b6b;
+}
+
+.search-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white !important;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.search-btn:hover {
+    transform: translateY(-2px);
+}
+
+.result-section {
+    background: white;
+    margin: 10px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    min-height: 100px;
+}
+
+.restaurant-card {
+    background: white;
+    margin: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+}
+
+.restaurant-header {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.restaurant-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.restaurant-subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.restaurant-content {
+    padding: 20px;
+}
+
+.restaurant-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.restaurant-table th {
+    background: #f8f9fa;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.restaurant-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+}
+
+.restaurant-table tr:hover {
+    background: #f8f9fa;
+}
+
+.load-btn {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white !important;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.load-btn:hover {
+    transform: translateY(-2px);
+}
+
+.navbar {
+    background: linear-gradient(135deg, #2d3436, #636e72);
+    border: none;
+}
+
+.navbar a {
+    color: #333 !important;
+    font-weight: bold;
+    background: #f8f9fa !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+.navbar a.ui-btn-active {
+    background: #007bff !important;
+    color: white !important;
+    border-color: #007bff !important;
+}
+
+.navbar a:hover {
+    background: #e9ecef !important;
+    color: #333 !important;
+}
+
+.footer {
+    background: #2d3436;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 12px;
+}
+
+.welcome-message {
+    background: linear-gradient(135deg, #00b894, #00a085);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.error-message {
+    background: linear-gradient(135deg, #e17055, #d63031);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.section-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.loading-message {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.summary-box {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    color: #333;
+}
+
+/* ===== ESTILOS PARA LA PÁGINA CRUD ===== */
+
+.crud-section {
+    padding: 10px;
+}
+
+.crud-card {
+    background: white;
+    margin: 10px 0;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-left: 4px solid #007bff;
+}
+
+.crud-card h4 {
+    color: #007bff;
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.crud-card p {
+    margin: 10px 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+.crud-card code {
+    background: #f8f9fa;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: #e83e8c;
+    border: 1px solid #e0e0e0;
+}
+
+.crud-card ul, .crud-card ol {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.crud-card li {
+    margin: 5px 0;
+    color: #666;
+}
+
+.crud-btn {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white !important;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.crud-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Estilos para jQuery Mobile */
+.ui-page {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.ui-header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.ui-footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    border: none;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.ui-content {
+    background: transparent;
+    padding: 20px;
+}
+
+/* Secciones principales */
+.welcome-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.welcome-section h2 {
+    color: #1a1a1a; /* Color más oscuro para mejor contraste */
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.welcome-section p {
+    color: #444444; /* Color más oscuro para mejor contraste */
+    font-size: 1.1em;
+}
+
+.navigation-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.navigation-buttons .ui-btn {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+}
+
+.navigation-buttons .ui-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.info-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.info-section h3 {
+    color: #1a1a1a; /* Color más oscuro para mejor contraste */
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.info-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-section li {
+    color: #444444; /* Color más oscuro para mejor contraste */
+    padding: 8px 0;
+    border-bottom: 1px solid #ecf0f1;
+    position: relative;
+    padding-left: 25px;
+}
+
+.info-section li:before {
+    content: "✓";
+    color: #27ae60;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Secciones de búsqueda y lista */
+.search-section, .list-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.search-section h2, .list-section h2 {
+    color: #1a1a1a; /* Color más oscuro para mejor contraste */
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.search-section p, .list-section p {
+    color: #444444; /* Color más oscuro para mejor contraste */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #1a1a1a; /* Color más oscuro para mejor contraste */
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ecf0f1;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    color: #1a1a1a; /* Color de texto más oscuro */
+    background-color: white; /* Fondo blanco para mejor contraste */
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Botones */
+.ui-btn {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.ui-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.ui-btn-b {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.ui-btn-b:hover {
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+/* Resultados */
+.result-section, .list-result-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    min-height: 100px;
+}
+
+.welcome-message {
+    text-align: center;
+    color: #1a1a1a; /* Color más oscuro para mejor contraste */
+}
+
+.welcome-message h3 {
+    color: #27ae60;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.welcome-message p {
+    margin: 8px 0;
+    color: #444444; /* Color más oscuro para mejor contraste */
+}
+
+.welcome-message strong {
+    color: #1a1a1a; /* Color más oscuro para mejor contraste */
+}
+
+.error-message {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.loading-message {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+
+/* Tabla de restaurantes */
+.restaurant-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.restaurant-table th {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 12px 8px;
+    text-align: left;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.restaurant-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #ecf0f1;
+    color: #1a1a1a; /* Color más oscuro para mejor contraste */
+}
+
+.restaurant-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.summary-box {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+/* Botones CRUD */
+.crud-btn {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.crud-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.crud-btn-small {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 6px rgba(243, 156, 18, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.crud-btn-small:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(243, 156, 18, 0.4);
+}
+
+.crud-btn-small-delete {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 6px rgba(231, 76, 60, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.crud-btn-small-delete:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4);
+}
+
+/* Sección CRUD */
+.crud-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.crud-section h2 {
+    color: #1a1a1a; /* Color más oscuro para mejor contraste */
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.crud-section p {
+    color: #444444; /* Color más oscuro para mejor contraste */
+    font-size: 1.1em;
+}
+
+.crud-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.crud-card h3 {
+    color: #1a1a1a; /* Color más oscuro para mejor contraste */
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-group .ui-btn {
+    width: 100%;
+}
+
+/* Instrucciones */
+.instructions-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.instructions-section h3 {
+    color: #1a1a1a; /* Color más oscuro para mejor contraste */
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.instruction-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.instruction-item h4 {
+    color: #1a1a1a; /* Color más oscuro para mejor contraste */
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.instruction-item p {
+    color: #444444; /* Color más oscuro para mejor contraste */
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ui-content {
+        padding: 15px;
+    }
+    
+    .welcome-section, .search-section, .list-section, .crud-section, .crud-card, .instructions-section {
+        padding: 20px;
+    }
+    
+    .navigation-buttons .ui-btn {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+    
+    .restaurant-table {
+        font-size: 0.9em;
+    }
+    
+    .restaurant-table th,
+    .restaurant-table td {
+        padding: 8px 6px;
     }
 }

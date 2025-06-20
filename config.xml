@@ -14,4 +14,6 @@
 
     <!-- Prueba previa con la Api de rikimorti xdd -->
     <access origin="https://rickandmortyapi.com" subdomains="true" />
+
+    <access origin="https://68547b6a6a6ef0ed662f34a1.mockapi.io" subdomains="true" />
 </widget>
